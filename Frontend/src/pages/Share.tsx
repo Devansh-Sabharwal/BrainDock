@@ -84,7 +84,7 @@ export function Share() {
                   toggleSidebar={toggleSidebar}
   
               />
-              <div>
+              <div className="w-full">
             <div className="bg-black text-center w-full px-6 pt-8 pb-0 text-xl sm:px-4 sm:pt-4 sm:pb-0 sm:text-3xl text-white font-normal">{`Welcome to ${username}'s Brain!!`}</div>
 
               <div className="w-full min-h-screen flex bg-black overflow-hidden">
