@@ -61,7 +61,7 @@ export function Share() {
     handleMutation(hash);
   }, [hash]);
     return <div className="bg-black min-h-screen min-w-screen">
-    <div className="bg-black w-[100vw] h-[100vh] font-inter">
+    <div className="bg-black w-[100%] h-[100vh] font-inter">
           {/* Topbar */}
            <div className="w-full h-[70px] fixed top-0 z-20 border-b-2 border-gray-1000 bg-black flex items-center justify-between px-4 shadow-md">
               <img src={logo} className="w-40 sm:w-48"/>
