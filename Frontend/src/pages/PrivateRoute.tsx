@@ -1,4 +1,4 @@
-
+const apiUrl = import.meta.env.VITE_BASE_URL;
 import { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { RingLoader } from "react-spinners";
@@ -13,7 +13,7 @@ export const PrivateRoute = () => {
         const verifyToken = async () => {
             if (token) {
                 try {
-                    const response = await fetch('http://localhost:3000/api/v1/get', {
+                    const response = await fetch(`${apiUrl}/get`, {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${token}`,
