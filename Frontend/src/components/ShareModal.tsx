@@ -13,7 +13,10 @@ export function ShareModal(props:ShareProps){
       mutationFn:shareStatus,
       onSuccess:(e)=>{
         setShare(!e.enabled);
-        setHash(e.hash);
+        if(e.hash!=="No Link to Share"){
+          setHash("https://braindock.vercel.app/share/"+e.hash);
+        }
+        else setHash(e.hash);
       },
       onError:(e)=>{
         toast.error(e.message || 'Something went wrong');
