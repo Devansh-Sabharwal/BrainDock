@@ -47,10 +47,10 @@ export function ShareModal(props:ShareProps){
       useEffect(()=>{
         status();
       },[])
-    return <div className="p-5 rounded-lg bg-black w-[300px] sm:w-[450px] border-2 border-gray-1000 h-fit">
-        <div className="flex justify-between">
-            <span className="text-white p-4">{hash}</span>
-            <span className="text-white p-2 h-fit hover:cursor-pointer border border-gray-1000 m-2" >
+    return <div className="p-5 rounded-lg bg-black w-[400px] sm:w-[550px] border-2 border-gray-1000 h-fit">
+        <div className="flex sm:justify-between items-center">
+            <div className="text-white w-[80%] break-all">{hash}</div>
+            <span className="text-white p-2 h-fit hover:cursor-pointer border border-gray-1000" >
                 <input className="mr-3 size-4" type="checkbox" checked={!share} onClick={()=>{
                 setShare(!share);
                 handleToggle();
