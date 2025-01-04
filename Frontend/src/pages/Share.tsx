@@ -61,7 +61,7 @@ export function Share() {
     handleMutation(hash);
   }, [hash]);
     return <div className="bg-black min-h-screen min-w-screen">
-    <div className="bg-black w-[100%] h-[100vh] font-inter">
+    <div className="bg-black w-[100%]  h-[100vh] font-inter">
           {/* Topbar */}
            <div className="w-full h-[70px] fixed top-0 z-20 border-b-2 border-gray-1000 bg-black flex items-center justify-between px-4 shadow-md">
               <img src={logo} className="w-40 sm:w-48"/>
@@ -88,7 +88,7 @@ export function Share() {
             <div className="bg-black text-center w-full px-6 pt-8 pb-0 text-xl sm:px-4 sm:pt-4 sm:pb-0 sm:text-3xl text-white font-normal">{`Welcome to ${username}'s Brain!!`}</div>
 
               <div className="w-full min-h-screen flex bg-black overflow-hidden">
-                      <div className="w-full flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-4 bg-black h-fit m-4 mr-5">
+                      <div className="w-full flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-4 bg-black h-fit my-4">
                           {content.map((item, index) => (
                           <Card
                               key={index} // Ensure unique keys for React
