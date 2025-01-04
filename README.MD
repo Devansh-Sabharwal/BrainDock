@@ -80,7 +80,7 @@ secondbrainapp/
    - Create `.env` files in the respective folders with the following:
      - Backend `.env`:
        ```
-       PORT=5000
+       PORT=3000
        MONGO_URI=<your-mongodb-uri>
        JWT_SECRET=<your-secret-key>
        ```
@@ -95,7 +95,6 @@ secondbrainapp/
 
 - **Save and Categorize**: Keep your links organized by categories or tags.
 - **Explore Shared Brains**: Discover resources shared by other users.
-- **Search and Sort**: Quickly access links by keywords or sort by date added.
 
 ---
 
