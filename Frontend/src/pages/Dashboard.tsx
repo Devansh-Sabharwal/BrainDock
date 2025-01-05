@@ -112,7 +112,7 @@ export default function Dashboard() {
             </div>
           </span>
         </div>
-        <div className="mt-[70px] flex gap-0 sm:gap-4 pr-2 bg-black">
+        <div className="mt-[70px] flex gap-0 sm:gap-4 bg-black">
             <SideBar 
                 setContent={setContent} 
                 setBar={setBar} 
@@ -121,7 +121,7 @@ export default function Dashboard() {
                 toggleSidebar={toggleSidebar}
 
             />
-            <div className="w-full min-h-screen flex bg-black overflow-hidden mr-2">
+            <div className="w-full min-h-screen flex bg-black overflow-hidden">
                     <div className="w-full flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-4 bg-black h-fit m-4">
                         {content.map((item, index) => (
                         <Card
