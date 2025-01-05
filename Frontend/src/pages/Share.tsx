@@ -65,7 +65,7 @@ export function Share() {
     <div className="bg-black w-[100%]  h-[100vh] font-inter">
           {/* Topbar */}
            <div className="w-full h-[70px] fixed top-0 z-20 border-b-2 border-gray-1000 bg-black flex items-center justify-between px-4 shadow-md">
-              <img onClick={() => navigate('/')} src={logo} className="cursor-pointer w-40 sm:w-48"/>
+              <img onClick={() => window.location.reload()} src={logo} className="cursor-pointer w-40 sm:w-48"/>
               <span className="flex gap-3 items-center">
               <Button variant="primary" color="black" size="md" text="SignUp" onClick={() => navigate('/signup')} />
               <div
