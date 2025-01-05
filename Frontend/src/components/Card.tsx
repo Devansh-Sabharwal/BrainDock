@@ -38,7 +38,7 @@ export default function Card(props:CardProps){
                 {props.title}
             </span>
             <div className="flex gap-2 items-center">
-            {props.deleteIcon &&   <TrashIcon onClick={() => handleDelete(props.id)} className="size-5 cursor-pointer"></TrashIcon>}
+            {props.deleteIcon==true &&   <TrashIcon onClick={() => handleDelete(props.id)} className="size-5 cursor-pointer"></TrashIcon>}
                 <Button variant="secondary" size="sm" icon={Open}  color="black" onClick={() => {
     window.open(props.link, '_blank');  // Opens the link in a new tab
   }}/>

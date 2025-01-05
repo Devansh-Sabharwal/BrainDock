@@ -132,6 +132,7 @@ export default function Dashboard() {
                             tags={item.tags}
                             id={item.id}
                             setContent={setContent}
+                            deleteIcon={true}
                         />
                         ))}
                     </div>
