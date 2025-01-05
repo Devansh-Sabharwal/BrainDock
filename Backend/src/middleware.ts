@@ -10,6 +10,9 @@ declare global {
 }
 
 const auth = (req: Request, res: Response, next: NextFunction):void => {
+  if (req.path === '/api/v1/content/tag' && req.method === 'POST') {
+    return next(); // Skip middleware for this route
+  }
   const authHeader = req.headers.authorization as string;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         res.status(401).json({ message: 'Authorization token missing or malformed' });
