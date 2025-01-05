@@ -158,7 +158,7 @@ export default function Dashboard() {
   )}
 </div>
 
-      {!showContent && viewSide && <div className="fixed bottom-8 right-4">
+      {!showContent && !showShare && viewSide && <div className="fixed bottom-8 right-4">
         <RoundedButton icon={ShareIcon} onClick={()=>setShowShare(!showShare)}></RoundedButton>
         <RoundedButton icon={AddIcon} onClick={()=>setShowContent(!showContent)}></RoundedButton>
       </div>}

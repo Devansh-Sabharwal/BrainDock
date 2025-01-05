@@ -21,7 +21,7 @@ export const useCustomMutation = (setContent:any) => {
   const navigate = useNavigate();
   const [status, setStatus] = useState('idle');
   const [username,setUsername] = useState("");
-
+  const [userId,setUserId] = useState();
   const{mutate} =  useMutation({
     mutationFn: getShare, 
     onSuccess: (e) => {
@@ -35,6 +35,7 @@ export const useCustomMutation = (setContent:any) => {
       setContent(filteredContent);
       setStatus('success');
       setUsername(e.username)
+      setUserId(e.userId);
     },
     onError: () => {
       navigate('/error')
@@ -45,13 +46,13 @@ export const useCustomMutation = (setContent:any) => {
     await mutate(hash);
   };
 
-  return { handleMutation, status,username,setStatus };
+  return { handleMutation, status,username,setStatus,userId};
 };
 
 export function Share() {
   const { hash } = useParams();
   const [content, setContent] = useState<ContentItem[]>([]);
-  const { handleMutation,status,username,setStatus } = useCustomMutation(setContent);
+  const { handleMutation,status,username,userId,setStatus } = useCustomMutation(setContent);
   const navigate = useNavigate();
   const [bar, setBar] = useState(false);
   const toggleSidebar = () => {
@@ -81,7 +82,8 @@ export function Share() {
                   setStatus={setStatus}
                   bar={bar}
                   toggleSidebar={toggleSidebar}
-  
+                  share={true}
+                  userId={userId}
               />
               <div className="w-full">
             <div className="bg-black text-center w-full px-2 pt-6 pb-2 text-xl sm:px-4 sm:pt-4 sm:pb-0 sm:text-3xl text-white font-normal">{`Welcome to ${username}'s Brain!!`}</div>

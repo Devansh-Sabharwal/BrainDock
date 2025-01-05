@@ -3,7 +3,7 @@ import { YT, Web, Twitter, Notion } from "../assets/socialIcons";
 import { ContentItem } from "../pages/Dashboard";
 import { Dispatch, SetStateAction, FC, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { getTags } from "../api/tags";
+import { getTags, getUserTags } from "../api/tags";
 import { toast } from "react-toastify";
 interface SidebarProps {
   setContent: Dispatch<SetStateAction<ContentItem[]>>;
@@ -11,36 +11,41 @@ interface SidebarProps {
   bar: Boolean;
   setBar: Dispatch<SetStateAction<boolean>>;
   setStatus:Dispatch<SetStateAction<string>>;
+  userId?:string //for share page and tokenless fetching
+  share?:Boolean //for sharepage 
 }
 
 export default function SideBar(props: SidebarProps) {
   const [current, setCurrent] = useState("Home");
-  const {mutate} = useMutation({
-    mutationFn:getTags,
-    onSuccess:(e)=>{
+  
+  const { mutate } = useMutation({
+    mutationFn: props.share ? getUserTags : getTags,
+    onSuccess: (e) => {
       const filteredContent = e.content.map((item: any) => ({
         title: item.title,
         description: item.description,
         tags: item.tags,
         link: item.link,
-        id: item._id
+        id: item._id,
       }));
       props.setContent(filteredContent);
-      props.setStatus('success')
+      props.setStatus('success');
       props.setBar(false);
     },
-    onError(e){
-      props.setStatus('success')
-      toast.error(e.message|| 'Something went wrong');
-      setCurrent("Home")
+    onError: (e) => {
+      props.setStatus('error');
+      toast.error(e.message || 'Something went wrong');
+      setCurrent("Home");
       props.setBar(false);
-
     }
-  })
+  });
+
   const handleMutation = async (tag:string) => {
     props.setStatus('loading'); // Set status to loading before mutation
-    await mutate(tag);
+    if(props.share) await mutate(tag+" "+props.userId)
+    else await mutate(tag);
   };
+
   return (
     <div className="min-h-screen bg-black flex border-r-2 border-gray-1000">
       <div

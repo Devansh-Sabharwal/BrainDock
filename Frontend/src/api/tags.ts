@@ -16,3 +16,15 @@ export const getTags = async (title:string)=>{
       }
       return response.json();
 }
+
+export const getUserTags = async (details:string)=>{
+    const [title, userId] = details.split(' ')
+    const response = await fetch(`${apiUrl}/fetchTags?userId=${userId}&tag=${title}`,{
+        method:'GET',
+    })
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Something went wrong.');
+      }
+      return response.json();
+}
