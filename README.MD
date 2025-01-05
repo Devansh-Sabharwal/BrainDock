@@ -33,7 +33,7 @@
 
 ## 🌐 Live Demo
 
-[Add a link to the deployed application here once live]
+[Link](https://braindock.vercel.app/)
 
 ---
 
@@ -59,7 +59,7 @@ secondbrainapp/
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Devansh-Sabharwal/BrainDock.git
-   cd secondbrainapp
+   cd BrainDock
    ```
 
 2. **Setup Backend**:
