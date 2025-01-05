@@ -25,7 +25,10 @@ export function ShareModal(props:ShareProps){
     const {mutate:toggle} = useMutation({
       mutationFn:shareContent,
       onSuccess:(e)=>{
-        setHash(e.hash);
+        if(e.hash!=="No Link to Share"){
+          setHash("https://braindock.vercel.app/share/"+e.hash);
+        }
+        else setHash(e.hash);
       },
       onError:(e)=>{
         toast.error(e.message || 'Something went wrong');
@@ -58,7 +61,7 @@ export function ShareModal(props:ShareProps){
                 Share
             </span>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-2">
         <Button variant="secondary" size="md" text="Cancel" color="white" onClick={()=>{props.setShowShare(false)}}></Button>
         <Button variant="secondary" size="md" text="Copy" color="white" onClick={handleCopy}></Button>
 

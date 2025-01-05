@@ -64,9 +64,8 @@ export function Share() {
     <div className="bg-black w-[100%]  h-[100vh] font-inter">
           {/* Topbar */}
            <div className="w-full h-[70px] fixed top-0 z-20 border-b-2 border-gray-1000 bg-black flex items-center justify-between px-4 shadow-md">
-              <img src={logo} className="w-40 sm:w-48"/>
-              <span className="flex gap-3">
-              <Button variant="primary" color="white" size="md" text="Login" onClick={() => navigate('/login')} />
+              <img onClick={() => navigate('/')} src={logo} className="cursor-pointer w-40 sm:w-48"/>
+              <span className="flex gap-3 items-center">
               <Button variant="primary" color="black" size="md" text="SignUp" onClick={() => navigate('/signup')} />
               <div
                   onClick={toggleSidebar}
@@ -85,12 +84,13 @@ export function Share() {
   
               />
               <div className="w-full">
-            <div className="bg-black text-center w-full px-6 pt-8 pb-0 text-xl sm:px-4 sm:pt-4 sm:pb-0 sm:text-3xl text-white font-normal">{`Welcome to ${username}'s Brain!!`}</div>
+            <div className="bg-black text-center w-full px-2 pt-6 pb-2 text-xl sm:px-4 sm:pt-4 sm:pb-0 sm:text-3xl text-white font-normal">{`Welcome to ${username}'s Brain!!`}</div>
 
               <div className="w-full min-h-screen flex bg-black overflow-hidden">
                       <div className="w-full flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-4 bg-black h-fit my-4">
                           {content.map((item, index) => (
                           <Card
+                              deleteIcon={false}
                               key={index} // Ensure unique keys for React
                               title={item.title}
                               description={item.description}

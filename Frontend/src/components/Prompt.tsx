@@ -74,22 +74,25 @@ export function ContentPrompt({ setShowContent,setContent }: PromptProps) {
             ))}
         </div>
         )}
-        <div className="flex justify-between bg-transparent border border-gray-1000 rounded-lg text-white mt-4 items-center p-1">
-        <input
-        type="text"
-        value={tagInput}
-        className="bg-transparent rounded-lg p-3 text-white"
-        onChange={(e) => setTagInput(e.target.value)}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") {
-            handleAddTag();
-          }
-        }}
-        placeholder="Enter tag"
-      />
-        <div onClick={()=>setTags(!tags)} className="cursor-pointer p-3 bg-transparent h-10 text-white">Select Tags</div>
+      <div className="flex bg-transparent border border-gray-1000 rounded-lg text-white mt-4 items-center p-1">
+              <input
+        
+              type="text"
+              value={tagInput}
+              className="bg-transparent rounded-lg p-3 text-white w-[70%]"
+              onChange={(e) => setTagInput(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  handleAddTag();
+                }
+              }}
+              placeholder="Enter tag"
+            />
+            <div className="flex items-center">
+            <div onClick={()=>setTags(!tags)} className="cursor-pointer p-3 bg-transparent h-10 text-white text-xs sm:text-lg">Select</div>
             <ChevronDoubleDownIcon onClick={()=>setTags(!tags)} className="h-5 hover:cursor-pointer"></ChevronDoubleDownIcon>
-        </div>
+            </div>
+      </div>
         {tags && <TagOptions setTagList={setTagList} />}
         <div className="flex justify-between p-4 px-0">
             <Button variant="secondary" size="md" text="Cancel" color="black" onClick={()=>{setShowContent(false)}}></Button>
