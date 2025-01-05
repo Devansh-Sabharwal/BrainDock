@@ -20,10 +20,11 @@ app.use(express.json());
 
 // Helper function to format content
 const formatContent = (content:any) => {
-    return content.map((item:any) => ({
+    const format = content.map((item:any) => ({
         ...item.toObject(),
         tags: item.tags.map((tag: any) => tag.title),
     }));
+    return format;
 };
 
 // Helper function to fetch content by tags
@@ -181,7 +182,8 @@ app.post('/api/v1/content/tag', async (req, res) => {
     const userId = req.userId as string
     try {
       const formattedContent = await fetchContentByTag(userId, tagTitle);
-      res.status(200).json({ content: formattedContent });
+      const finalContent = formatContent(formattedContent)
+      res.status(200).json({ content: finalContent });
     } catch (e) {
       res.status(500).json({ message: "Server error" });
     }
