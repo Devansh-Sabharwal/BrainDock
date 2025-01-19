@@ -86,7 +86,7 @@ secondbrainapp/
        ```
      - Frontend `.env`:
        ```
-       VITE_API_URL=<backend-api-url>
+       VITE_BASE_URL=<backend-api-url>
        ```
 
 ---
@@ -110,5 +110,3 @@ This project is licensed under the MIT License.
 - [GitHub Profile](https://github.com/Devansh-Sabharwal)
 
 ---
-
-Let me know if you'd like further refinements!
