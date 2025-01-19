@@ -34,7 +34,7 @@ export default function Card(props:CardProps){
     }
     return <div className="bg-black text-white 2xl:w-[24%] xl:w-[32%] lg:w-[32%] md:w-[48%] sm:w-[48%] w-[100%] rounded-lg p-4 border border-gray-1000"> 
         <div className="flex text-white justify-between items-center">
-            <span className="font-medium text-xl">
+            <span className="font-medium text-xl break-all">
                 {props.title}
             </span>
             <div className="flex gap-2 items-center">
@@ -44,7 +44,7 @@ export default function Card(props:CardProps){
   }}/>
             </div>
         </div>
-        <div className="mt-2 text-sm">
+        <div className="mt-2 text-sm break-all">
             {props.description}
         </div>
         <div>
